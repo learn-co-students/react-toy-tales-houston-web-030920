@@ -1,10 +1,10 @@
 import React from 'react';
-import ToyCard from './ToyCard'
+import ToyCard from './ToyCard.jsx'
 
-const ToyContainer = () => {
+const ToyContainer = (props) => {
   return(
     <div id="toy-collection">
-      {/* Render the collection of ToyCards */}
+      {props.toys.map(toy=> <ToyCard toy={toy} removeToy={props.removeToy}/>)}
     </div>
   );
 }
