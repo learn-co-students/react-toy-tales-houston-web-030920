@@ -2,10 +2,25 @@ import React, { Component } from 'react';
 
 class ToyForm extends Component {
 
+  state = {
+    name: '',
+    image: ''
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+      this.setState({
+        name: event.target.name.value,
+        image: event.target.image.value
+      }, () => this.props.addNewToy(this.state)) 
+      
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div className="container">
-        <form className="add-toy-form">
+        <form onSubmit={this.handleSubmit} className="add-toy-form">
           <h3>Create a toy!</h3>
           <input type="text" name="name" placeholder="Enter a toy's name..." className="input-text"/>
           <br/>

@@ -25,16 +25,13 @@ class App extends React.Component{
     return (
       <>
         <Header/>
-        { this.state.display
-            ?
-          <ToyForm/>
-            :
-          null
-        }
+        
         <div className="buttonContainer">
           <button onClick={this.handleClick}> Add a Toy </button>
         </div>
-        <ToyContainer/>
+        <ToyContainer
+          display={this.state.display}
+        />
       </>
     );
   }
